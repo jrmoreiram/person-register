@@ -22,25 +22,25 @@ public class PersonPersistenceService {
     private PersonSearchService personSearchService;
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public Person saveOrUpdatePerson(Person person) throws Exception {
-        Person personSaved;
+    public Person saveOrUpdatePerson(Person personSave) throws Exception {
+        Person person;
         try {
-            personSaved = personRepository.save(person);
+            person = personRepository.save(personSave);
         } catch (Exception e) {
             LOG.error(e.getMessage());
-            throw new BadRequestException("Ocorreu um erro ao salvar a pessoa: " + person.getPersonId() + person.getFirstName() + person.getLastName());
+            throw new BadRequestException("Ocorreu um erro ao salvar a pessoa ID: " + personSave.getPersonId());
         }
 
-        return personSaved;
+        return person;
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
     public void removePerson(int personId) throws Exception {
-         try {
+        try {
             personRepository.deleteById(personId);
         } catch (Exception e) {
             LOG.error(e.getMessage());
-            throw new BadRequestException("Ocorreu um erro ao excluir a pessoa: " + personId);
+            throw new BadRequestException("Ocorreu um erro ao excluir a pessoa ID: " + personId);
         }
     }
 }

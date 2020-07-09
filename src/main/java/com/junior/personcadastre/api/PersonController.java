@@ -79,7 +79,7 @@ public class PersonController {
 
     @DeleteMapping("/delete/{personId}")
     @ApiResponses({
-            @ApiResponse(code = 201, message = "OK", response = PersonDTO.class),
+            @ApiResponse(code = 200, message = "OK", response = PersonDTO.class),
             @ApiResponse(code = 400, message = "Erro ao deletar uma pessoa"),
             @ApiResponse(code = 500, message = "Ocorreu um erro interno no servidor")
     })
