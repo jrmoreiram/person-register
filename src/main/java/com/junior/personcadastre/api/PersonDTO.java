@@ -1,13 +1,53 @@
 package com.junior.personcadastre.api;
 
-import com.junior.personcadastre.domain.Person;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+@ApiModel("PersonResponse")
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class PersonDTO extends ObjectBaseDTO {
+    @ApiModelProperty(value = "Identificador único")
+    private String personId;
 
-public record PersonDTO(@NotNull @NotEmpty String firstName, @NotNull @NotEmpty String lastName, int personAge) {
+    @ApiModelProperty(value = "Primeiro nome")
+    private String firstName;
 
-    public Person toEntity() {
-        return new Person(null, this.firstName, this.lastName, this.personAge);
+    @ApiModelProperty(value = "Último nome")
+    private String lastName;
+
+    @ApiModelProperty(value = "Idade da pessoa")
+    private int personAge;
+
+    public String getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(String personId) {
+        this.personId = personId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public int getPersonAge() {
+        return personAge;
+    }
+
+    public void setPersonAge(int personAge) {
+        this.personAge = personAge;
     }
 }
