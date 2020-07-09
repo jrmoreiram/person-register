@@ -16,7 +16,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 public class SwaggerConfig extends WebMvcConfigurationSupport {
 
     @Bean
-    public Docket personApi() {
+    public Docket seniorApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.any())
@@ -37,8 +37,8 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
 
     private ApiInfo buildApiInfo() {
         return new ApiInfoBuilder()
-                .title("Person Cadastre API")
-                .description("API Documentation Person Cadastre.")
+                .title("Person API")
+                .description("API Documentation Person.")
                 .build();
     }
 }

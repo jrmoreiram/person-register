@@ -1,4 +1,4 @@
-package com.junior.personcadastre.param;
+package com.junior.personcadastre.api.param;
 
 import io.swagger.annotations.ApiParam;
 

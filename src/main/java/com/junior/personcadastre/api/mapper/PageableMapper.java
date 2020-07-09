@@ -1,7 +1,7 @@
-package com.junior.personcadastre.mapper;
+package com.junior.personcadastre.api.mapper;
 
-import com.junior.personcadastre.param.PaginationParam;
-import com.junior.personcadastre.param.SortParam;
+import com.junior.personcadastre.api.param.PaginationParam;
+import com.junior.personcadastre.api.param.SortParam;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;

@@ -1,4 +1,4 @@
-package com.junior.personcadastre.api;
+package com.junior.personcadastre.api.dto;
 
 /**
  * DTO de objeto base da aplicação.

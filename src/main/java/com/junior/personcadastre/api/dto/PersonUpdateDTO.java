@@ -1,14 +1,14 @@
-package com.junior.personcadastre.api;
+package com.junior.personcadastre.api.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-@ApiModel("PersonCreate")
+@ApiModel("PersonUpdate")
 @Getter
 @Setter
-public class PersonCreateDTO extends ObjectBaseDTO {
+public class PersonUpdateDTO extends ObjectBaseDTO {
 
     @ApiModelProperty(value = "Primeiro nome")
     private String firstName;

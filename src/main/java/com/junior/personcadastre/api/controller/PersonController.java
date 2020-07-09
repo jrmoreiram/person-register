@@ -1,10 +1,14 @@
-package com.junior.personcadastre.api;
+package com.junior.personcadastre.api.controller;
 
+import com.junior.personcadastre.api.dto.PersonCreateDTO;
+import com.junior.personcadastre.api.dto.PersonDTO;
+import com.junior.personcadastre.api.dto.PersonListDTO;
+import com.junior.personcadastre.api.dto.PersonUpdateDTO;
 import com.junior.personcadastre.domain.Person;
-import com.junior.personcadastre.mapper.PageableMapper;
-import com.junior.personcadastre.mapper.PersonMapper;
-import com.junior.personcadastre.param.PaginationParam;
-import com.junior.personcadastre.param.SortParam;
+import com.junior.personcadastre.api.mapper.PageableMapper;
+import com.junior.personcadastre.api.mapper.PersonMapper;
+import com.junior.personcadastre.api.param.PaginationParam;
+import com.junior.personcadastre.api.param.SortParam;
 import com.junior.personcadastre.service.PersonPersistenceService;
 import com.junior.personcadastre.service.PersonSearchService;
 import io.swagger.annotations.ApiOperation;
@@ -33,7 +37,7 @@ public class PersonController {
             @ApiResponse(code = 400, message = "Erro na consulta de Pessoa"),
             @ApiResponse(code = 500, message = "Ocorreu um erro interno no servidor")
     })
-    @ApiOperation("Consulta todas as pessoas")
+    @ApiOperation("Consulta pessoas")
     public ResponseEntity<PersonListDTO> find(PaginationParam pagination, SortParam sort) {
         Pageable pageable = PageableMapper.paramsToPageable(pagination, sort);
         return ResponseEntity.ok(PersonMapper.fromEntities(personSearchService.findAll(pageable)));
@@ -45,7 +49,7 @@ public class PersonController {
             @ApiResponse(code = 400, message = "Erro ao salvar uma pessoa"),
             @ApiResponse(code = 500, message = "Ocorreu um erro interno no servidor")
     })
-    @ApiOperation("Criação da pessoa")
+    @ApiOperation("Insere pessoa")
     public ResponseEntity<PersonDTO> createPerson(@RequestBody @Valid PersonCreateDTO person) throws Exception {
         Person personCreate = personPersistenceService.saveOrUpdatePerson(PersonMapper.fromCreateDTO(person));
         return ResponseEntity.ok(PersonMapper.fromEntity(personPersistenceService.saveOrUpdatePerson(personCreate)));
@@ -59,7 +63,7 @@ public class PersonController {
             @ApiResponse(code = 404, message = "Pessoa não encontrado"),
             @ApiResponse(code = 500, message = "Ocorreu um erro interno no servidor")
     })
-    @ApiOperation("Alteração da pessoa pelo id")
+    @ApiOperation("Edita pessoa pelo ID")
     public ResponseEntity<PersonDTO> update(@RequestBody @Valid PersonUpdateDTO person, @PathVariable @Valid int personId) throws Exception {
         Person personUpdate = PersonMapper.fromUpdateDTO(personId, person);
         return ResponseEntity.ok(PersonMapper.fromEntity(personPersistenceService.saveOrUpdatePerson(personUpdate)));
@@ -72,7 +76,7 @@ public class PersonController {
             @ApiResponse(code = 404, message = "Pessoa não encontrada"),
             @ApiResponse(code = 500, message = "Ocorreu um erro interno no servidor")
     })
-    @ApiOperation("Consulta de pessoa pelo id")
+    @ApiOperation("Consulta pessoa pelo ID")
     public ResponseEntity<PersonDTO> findByPersonId(@PathVariable @Valid int personId) throws Exception {
         return ResponseEntity.ok(PersonMapper.fromEntity(personSearchService.findById(personId)));
     }

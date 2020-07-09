@@ -1,9 +1,9 @@
-package com.junior.personcadastre.mapper;
+package com.junior.personcadastre.api.mapper;
 
-import com.junior.personcadastre.api.PersonCreateDTO;
-import com.junior.personcadastre.api.PersonDTO;
-import com.junior.personcadastre.api.PersonListDTO;
-import com.junior.personcadastre.api.PersonUpdateDTO;
+import com.junior.personcadastre.api.dto.PersonCreateDTO;
+import com.junior.personcadastre.api.dto.PersonDTO;
+import com.junior.personcadastre.api.dto.PersonListDTO;
+import com.junior.personcadastre.api.dto.PersonUpdateDTO;
 import com.junior.personcadastre.domain.Person;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
