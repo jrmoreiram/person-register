@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.UUID;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,8 +16,35 @@ import java.io.Serializable;
 public class Person implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer personId;
+    private int personId;
     private String firstName;
     private String lastName;
     private int personAge;
+
+    /**
+     * Builder para classe {@link Person}
+     *
+     * @author Júnior Moreira Martins
+     */
+    public static final class PersonBuilder {
+
+        private Person entity;
+
+        private PersonBuilder() {
+            entity = new Person();
+        }
+
+        public static PersonBuilder of() {
+            return new PersonBuilder();
+        }
+
+        public PersonBuilder personId(int personId) {
+            entity.setPersonId(personId);
+            return this;
+        }
+
+        public Person build() {
+            return entity;
+        }
+    }
 }

@@ -45,10 +45,24 @@ public class PersonController {
             @ApiResponse(code = 400, message = "Erro ao salvar uma pessoa"),
             @ApiResponse(code = 500, message = "Ocorreu um erro interno no servidor")
     })
-    @ApiOperation("Salva pessoa")
-    public ResponseEntity<PersonDTO> saveOrUpdatePerson(@RequestBody @Valid PersonDTO person) throws Exception {
-        Person personSave = personPersistenceService.saveOrUpdatePerson(PersonMapper.fromCreateDTO(person));
-        return ResponseEntity.ok(PersonMapper.fromEntity(personPersistenceService.saveOrUpdatePerson(personSave)));
+    @ApiOperation("Criação da pessoa")
+    public ResponseEntity<PersonDTO> createPerson(@RequestBody @Valid PersonCreateDTO person) throws Exception {
+        Person personCreate = personPersistenceService.saveOrUpdatePerson(PersonMapper.fromCreateDTO(person));
+        return ResponseEntity.ok(PersonMapper.fromEntity(personPersistenceService.saveOrUpdatePerson(personCreate)));
+
+    }
+
+    @PutMapping("/save/{personId}")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "OK", response = PersonDTO.class),
+            @ApiResponse(code = 400, message = "Erro na alteração da Pessoa"),
+            @ApiResponse(code = 404, message = "Pessoa não encontrado"),
+            @ApiResponse(code = 500, message = "Ocorreu um erro interno no servidor")
+    })
+    @ApiOperation("Alteração da pessoa pelo id")
+    public ResponseEntity<PersonDTO> update(@RequestBody @Valid PersonUpdateDTO person, @PathVariable @Valid int personId) throws Exception {
+        Person personUpdate = PersonMapper.fromUpdateDTO(personId, person);
+        return ResponseEntity.ok(PersonMapper.fromEntity(personPersistenceService.saveOrUpdatePerson(personUpdate)));
     }
 
     @GetMapping("search/{personId}")

@@ -1,7 +1,9 @@
 package com.junior.personcadastre.mapper;
 
+import com.junior.personcadastre.api.PersonCreateDTO;
 import com.junior.personcadastre.api.PersonDTO;
 import com.junior.personcadastre.api.PersonListDTO;
+import com.junior.personcadastre.api.PersonUpdateDTO;
 import com.junior.personcadastre.domain.Person;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -21,7 +23,7 @@ public class PersonMapper {
         return mapper.map(person, PersonDTO.class);
     }
 
-    public static Person fromCreateDTO(PersonDTO dto) {
+    public static Person fromCreateDTO(PersonCreateDTO dto) {
         return mapper.map(dto, Person.class);
     }
 
@@ -31,5 +33,13 @@ public class PersonMapper {
                         .map(PersonMapper::fromEntity)
                         .collect(Collectors.toList()), persons.hasNext()
         );
+    }
+
+    public static Person fromUpdateDTO(int id, PersonUpdateDTO dto) {
+        Person person = Person.PersonBuilder.of().personId(id).build();
+
+        mapper.map(dto, person);
+
+        return person;
     }
 }
