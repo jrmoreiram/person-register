@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiParam;
 import java.util.List;
 
 public class SortParam {
+
     @ApiParam(name = "direction", value = "Direção em que ordenação será aplicada")
     private String direction;
 

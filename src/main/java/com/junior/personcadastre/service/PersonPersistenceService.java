@@ -18,9 +18,6 @@ public class PersonPersistenceService {
     @Autowired
     private PersonRepository personRepository;
 
-    @Autowired
-    private PersonSearchService personSearchService;
-
     @Transactional(propagation = Propagation.REQUIRED)
     public Person saveOrUpdatePerson(Person personSave) throws Exception {
         Person person;

@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiParam;
  * @author Júnior Moreira Martins
  */
 public class PaginationParam {
+
     @ApiParam(name = "page", defaultValue = "0", value = "Número da página")
     private Integer page = 0;
 
@@ -29,4 +30,5 @@ public class PaginationParam {
     public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
     }
+
 }

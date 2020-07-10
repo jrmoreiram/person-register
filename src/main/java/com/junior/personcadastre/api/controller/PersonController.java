@@ -34,7 +34,7 @@ public class PersonController {
     @GetMapping
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK", response = PersonListDTO.class),
-            @ApiResponse(code = 400, message = "Erro na consulta de Pessoa"),
+            @ApiResponse(code = 400, message = "Erro ao consultar pessoas"),
             @ApiResponse(code = 500, message = "Ocorreu um erro interno no servidor")
     })
     @ApiOperation("Consulta pessoas")
@@ -46,7 +46,7 @@ public class PersonController {
     @PostMapping("/save")
     @ApiResponses({
             @ApiResponse(code = 201, message = "OK", response = PersonDTO.class),
-            @ApiResponse(code = 400, message = "Erro ao salvar uma pessoa"),
+            @ApiResponse(code = 400, message = "Erro ao salvar pessoa"),
             @ApiResponse(code = 500, message = "Ocorreu um erro interno no servidor")
     })
     @ApiOperation("Insere pessoa")
@@ -59,7 +59,7 @@ public class PersonController {
     @PutMapping("/save/{personId}")
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK", response = PersonDTO.class),
-            @ApiResponse(code = 400, message = "Erro na alteração da Pessoa"),
+            @ApiResponse(code = 400, message = "Erro ao editar pessoa"),
             @ApiResponse(code = 404, message = "Pessoa não encontrado"),
             @ApiResponse(code = 500, message = "Ocorreu um erro interno no servidor")
     })
@@ -72,7 +72,7 @@ public class PersonController {
     @GetMapping("search/{personId}")
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK", response = PersonDTO.class),
-            @ApiResponse(code = 400, message = "Erro na consulta da Pessoa"),
+            @ApiResponse(code = 400, message = "Erro ao consultar pessoa"),
             @ApiResponse(code = 404, message = "Pessoa não encontrada"),
             @ApiResponse(code = 500, message = "Ocorreu um erro interno no servidor")
     })
@@ -84,7 +84,7 @@ public class PersonController {
     @DeleteMapping("/delete/{personId}")
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK", response = PersonDTO.class),
-            @ApiResponse(code = 400, message = "Erro ao deletar uma pessoa"),
+            @ApiResponse(code = 400, message = "Erro ao deletar pessoa"),
             @ApiResponse(code = 500, message = "Ocorreu um erro interno no servidor")
     })
     @ApiOperation("Remove pessoa")
