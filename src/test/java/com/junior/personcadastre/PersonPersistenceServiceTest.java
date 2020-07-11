@@ -35,7 +35,7 @@ public class PersonPersistenceServiceTest {
     public void testSaveOrUpdatePersonSuccess() throws Exception {
 
         Person personSave = Person.PersonBuilder.of()
-                .personId(1)
+                .id(1)
                 .firstName("Junior")
                 .lastName("Martins")
                 .personAge(32)
@@ -43,7 +43,7 @@ public class PersonPersistenceServiceTest {
 
         when(personPersistenceService.saveOrUpdatePerson(personSave)).thenReturn(personSave);
 
-        assertThat(personSave.getPersonId()).isEqualTo(Integer.valueOf(1));
+        assertThat(personSave.getId()).isEqualTo(Integer.valueOf(1));
         assertThat(personSave.getFirstName()).isEqualTo("Junior");
         assertThat(personSave.getLastName()).isEqualTo("Martins");
         assertThat(personSave.getPersonAge()).isEqualTo(32);
@@ -53,7 +53,7 @@ public class PersonPersistenceServiceTest {
     @Test
     public void testRemovePersonSuccess() throws Exception {
         Person personRemove = Person.PersonBuilder.of()
-                .personId(1)
+                .id(1)
                 .firstName("Junior")
                 .lastName("Moreira")
                 .personAge(32)
@@ -62,7 +62,7 @@ public class PersonPersistenceServiceTest {
         when(personRepository.findById(1)).thenReturn(Optional.of(personRemove));
 
         String messageExpected = "Person ID: 1 removed with success!.";
-        String messageResponse = personPersistenceService.removePerson(personRemove.getPersonId());
+        String messageResponse = personPersistenceService.removePerson(personRemove.getId());
 
         assertThat(messageExpected).isEqualTo(messageResponse);
 

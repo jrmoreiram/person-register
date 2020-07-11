@@ -16,7 +16,7 @@ import java.util.UUID;
 public class Person implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int personId;
+    private int id;
     private String firstName;
     private String lastName;
     private int personAge;
@@ -38,8 +38,8 @@ public class Person implements Serializable {
             return new PersonBuilder();
         }
 
-        public PersonBuilder personId(int personId) {
-            entity.setPersonId(personId);
+        public PersonBuilder id(int id) {
+            entity.setId(id);
             return this;
         }
 

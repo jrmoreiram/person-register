@@ -1,9 +1,9 @@
 package com.junior.personcadastre.exception;
 
 /**
- * Excessão customizada para NotFound.
+ * Custom exception for NotFound.
  *
- * Lançado quando não é encontrado o que foi solicitado.
+ * Launched when what was requested is not found.
  *
  * @author Júnior Moreira Martins
  */

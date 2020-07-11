@@ -1,9 +1,7 @@
 package com.junior.personcadastre.service;
 
-import com.junior.personcadastre.api.mapper.PersonMapper;
 import com.junior.personcadastre.domain.Person;
 import com.junior.personcadastre.exception.BadRequestException;
-import com.junior.personcadastre.exception.NotFoundException;
 import com.junior.personcadastre.repository.PersonRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,16 +29,16 @@ public class PersonPersistenceService {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public String removePerson(int personId) throws Exception {
+    public String removePerson(int id) throws Exception {
 
-        Optional<Person> personList = personRepository.findById(personId);
+        Optional<Person> personList = personRepository.findById(id);
 
         if (!personList.isPresent()) {
-            throw new BadRequestException("Error deleting person ID: " + personId);
+            throw new BadRequestException("Error deleting person ID: " + id);
         } else {
-            personRepository.deleteById(personId);
+            personRepository.deleteById(id);
 
-            String message = "Person ID: " + personId + " removed with success!.";
+            String message = "Person ID: " + id + " removed with success!.";
             return message;
         }
     }

@@ -57,19 +57,19 @@ public class PersonController {
 
     }
 
-    @PutMapping("/save/{personId}")
+    @PutMapping("/{id}")
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK", response = PersonDTO.class),
             @ApiResponse(code = 400, message = "Error editing person"),
             @ApiResponse(code = 500, message = "Internal server error has occurred")
     })
     @ApiOperation("Edit person by ID")
-    public ResponseEntity<PersonDTO> updatePerson(@RequestBody @Valid PersonUpdateDTO person, @PathVariable @Valid int personId) throws Exception {
-        Person personUpdate = PersonMapper.fromUpdateDTO(personId, person);
+    public ResponseEntity<PersonDTO> updatePerson(@RequestBody @Valid PersonUpdateDTO person, @PathVariable @Valid int id) throws Exception {
+        Person personUpdate = PersonMapper.fromUpdateDTO(id, person);
         return ResponseEntity.ok(PersonMapper.fromEntity(personPersistenceService.saveOrUpdatePerson(personUpdate)));
     }
 
-    @GetMapping("search/{personId}")
+    @GetMapping("/{id}")
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK", response = PersonDTO.class),
             @ApiResponse(code = 400, message = "Error find person by ID"),
@@ -77,18 +77,18 @@ public class PersonController {
             @ApiResponse(code = 500, message = "Internal server error has occurred")
     })
         @ApiOperation("Find person by ID")
-    public ResponseEntity<PersonDTO> findByPersonId(@PathVariable @Valid int personId) throws Exception {
-        return ResponseEntity.ok(PersonMapper.fromEntity(personSearchService.findById(personId)));
+    public ResponseEntity<PersonDTO> findById(@PathVariable @Valid int id) throws Exception {
+        return ResponseEntity.ok(PersonMapper.fromEntity(personSearchService.findById(id)));
     }
 
-    @DeleteMapping("/delete/{personId}")
+    @DeleteMapping("/{id}")
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK", response = PersonDTO.class),
             @ApiResponse(code = 400, message = "Error deleting person"),
             @ApiResponse(code = 500, message = "Internal server error has occurred")
     })
     @ApiOperation("Remove person")
-    public String removePerson(@PathVariable @Valid int personId) throws Exception {
-        return personPersistenceService.removePerson(personId);
+    public String removePerson(@PathVariable @Valid int id) throws Exception {
+        return personPersistenceService.removePerson(id);
     }
 }

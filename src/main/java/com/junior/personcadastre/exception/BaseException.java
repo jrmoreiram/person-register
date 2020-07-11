@@ -1,7 +1,7 @@
 package com.junior.personcadastre.exception;
 
 /**
- * Excessão base para excessões customizadas.
+ * Base class for custom exceptions.
  *
  * @author Júnior Moreira Martins
  */

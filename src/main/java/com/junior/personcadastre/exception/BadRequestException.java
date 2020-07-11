@@ -1,7 +1,7 @@
 package com.junior.personcadastre.exception;
 
 /**
- * Excessão customizada para BadRequest.
+ * Custom exception for BadRequest.
  *
  * @author Júnior Moreira Martins
  */

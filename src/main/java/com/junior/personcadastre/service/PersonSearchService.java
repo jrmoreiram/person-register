@@ -18,8 +18,8 @@ public class PersonSearchService {
     private PersonRepository personRepository;
 
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public Person findById(int personId) throws BaseException {
-        return personRepository.findById(personId).orElseThrow(() -> new NotFoundException("Person not found."));
+    public Person findById(int id) throws BaseException {
+        return personRepository.findById(id).orElseThrow(() -> new NotFoundException("Person not found."));
     }
 
     @Transactional(propagation = Propagation.NOT_SUPPORTED, readOnly = true)

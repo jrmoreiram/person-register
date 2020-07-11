@@ -19,8 +19,8 @@ public abstract class CollectionBaseDTO<T extends ObjectBaseDTO> extends ObjectB
      */
     private boolean hasNext;
 
-    public CollectionBaseDTO(Collection<T> items, boolean hasNext) {
-        this.persons = items;
+    public CollectionBaseDTO(Collection<T> persons, boolean hasNext) {
+        this.persons = persons;
         this.hasNext = hasNext;
     }
 

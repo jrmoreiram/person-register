@@ -38,7 +38,7 @@ public class PersonSearchServiceTest {
         when(personRepository.findById(1)).thenReturn(Optional.of(person));
         Person result = personSearchService.findById(1);
 
-        assertThat(result.getPersonId()).isEqualTo(Integer.valueOf(1));
+        assertThat(result.getId()).isEqualTo(Integer.valueOf(1));
         assertThat(result.getFirstName()).isEqualTo("Junior");
         assertThat(result.getLastName()).isEqualTo("Martins");
         assertThat(result.getPersonAge()).isEqualTo(33);

@@ -13,7 +13,7 @@ import lombok.Setter;
 public class PersonDTO extends ObjectBaseDTO {
 
     @ApiModelProperty(value = "Unique identifier")
-    private int personId;
+    private int id;
 
     @ApiModelProperty(value = "First name")
     private String firstName;

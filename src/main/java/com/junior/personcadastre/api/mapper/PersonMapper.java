@@ -36,7 +36,7 @@ public class PersonMapper {
     }
 
     public static Person fromUpdateDTO(int id, PersonUpdateDTO dto) {
-        Person person = Person.PersonBuilder.of().personId(id).build();
+        Person person = Person.PersonBuilder.of().id(id).build();
 
         mapper.map(dto, person);
 
