@@ -1,7 +1,7 @@
 package com.junior.personcadastre.api.dto;
 
 /**
- * DTO de objeto base da aplicação.
+ * DTO base application object.
  *
  * @author Júnior Moreira Martins
  */

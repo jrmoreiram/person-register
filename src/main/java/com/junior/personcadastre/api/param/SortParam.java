@@ -6,10 +6,10 @@ import java.util.List;
 
 public class SortParam {
 
-    @ApiParam(name = "direction", value = "Direção em que ordenação será aplicada")
+    @ApiParam(name = "direction", value = "Direction in which ordering will be applied")
     private String direction;
 
-    @ApiParam(name = "persons", value = "Atributos para ordernação")
+    @ApiParam(name = "persons", value = "Attributes for sorting")
     private List<String> persons;
 
     public String getDirection() {

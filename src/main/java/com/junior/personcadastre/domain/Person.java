@@ -43,6 +43,21 @@ public class Person implements Serializable {
             return this;
         }
 
+        public PersonBuilder firstName(String firstName) {
+            entity.setFirstName(firstName);
+            return this;
+        }
+
+        public PersonBuilder lastName(String lastName) {
+            entity.setLastName(lastName);
+            return this;
+        }
+
+        public PersonBuilder personAge(int personAge) {
+            entity.setPersonAge(personAge);
+            return this;
+        }
+
         public Person build() {
             return entity;
         }

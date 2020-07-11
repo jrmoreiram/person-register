@@ -12,15 +12,15 @@ import lombok.Setter;
 @Setter
 public class PersonDTO extends ObjectBaseDTO {
 
-    @ApiModelProperty(value = "Identificador único")
+    @ApiModelProperty(value = "Unique identifier")
     private int personId;
 
-    @ApiModelProperty(value = "Primeiro nome")
+    @ApiModelProperty(value = "First name")
     private String firstName;
 
-    @ApiModelProperty(value = "Último nome")
+    @ApiModelProperty(value = "Last name")
     private String lastName;
 
-    @ApiModelProperty(value = "Idade da pessoa")
+    @ApiModelProperty(value = "Person age")
     private int personAge;
 }

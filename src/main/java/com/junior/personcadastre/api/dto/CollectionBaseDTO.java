@@ -3,19 +3,19 @@ package com.junior.personcadastre.api.dto;
 import java.util.Collection;
 
 /**
- * DTO de listagem base da aplicação.
+ * DTO base application list.
  *
  * @author Júnior Moreira Martins
  */
 public abstract class CollectionBaseDTO<T extends ObjectBaseDTO> extends ObjectBaseDTO {
 
     /**
-     * Pessoas a serem retornadas.
+     * People to be returned.
      */
     private Collection<T> persons;
 
     /**
-     * Indica se possui mais pessoas na próxima página.
+     * Indicates if you have more people on the next page.
      */
     private boolean hasNext;
 

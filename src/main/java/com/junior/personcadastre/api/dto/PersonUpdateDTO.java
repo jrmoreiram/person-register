@@ -10,12 +10,12 @@ import lombok.Setter;
 @Setter
 public class PersonUpdateDTO extends ObjectBaseDTO {
 
-    @ApiModelProperty(value = "Primeiro nome")
+    @ApiModelProperty(value = "First name")
     private String firstName;
 
-    @ApiModelProperty(value = "Último nome")
+    @ApiModelProperty(value = "Last name")
     private String lastName;
 
-    @ApiModelProperty(value = "Idade da pessoa")
+    @ApiModelProperty(value = "Person age")
     private int personAge;
 }
