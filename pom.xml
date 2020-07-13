@@ -160,7 +160,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- Newrelic monitor AMP -->
+            <!-- Unzip New Relic Java agent into target/ -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -178,8 +178,7 @@
                             <overWriteReleases>false</overWriteReleases>
                             <overWriteSnapshots>false</overWriteSnapshots>
                             <overWriteIfNewer>true</overWriteIfNewer>
-                            <outputDirectory>${project.basedir}</outputDirectory>
-                            <destFileName>newrelic</destFileName>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
